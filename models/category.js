@@ -11,7 +11,7 @@ var CategorySchema = new Schema({
 		type: String,
 		default: '',
 		trim: true,
-		required: 'Nome cannot be blank'
+		required: 'Name cannot be blank'
 	}
 });
 

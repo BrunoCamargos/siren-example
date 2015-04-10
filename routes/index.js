@@ -7,8 +7,9 @@ require('../models/category');
 var categories = db.model('Category');
 
 router.post('/', function(req, res, next) {
+	console.log(req.body);
 	var newCategory = new categories({
-		'name': req.body.name
+		name: req.body.name
 	});
 
 	newCategory.save(function(err, data) {
@@ -22,27 +23,38 @@ router.post('/', function(req, res, next) {
 	});
 });
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-
-	var result = new Achelous("customer", {
-		firstName: "Joe",
-		lastName: "Customer"
+router.get('/', function(req, res) {
+	categories.find({}, function(err, data) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(data);
+			res.status(200);
+		}
 	});
-
-	result.addEntity({
-		class: ["order",
-			"collection"
-		],
-		rel: "http://foo.bar.com/orders",
-		href: "http://myserver.com/api/orders"
-	});
-
-	result.addLink("self", "http://myserver.com/api/customers/1234");
-	result.addLink("account", "http://myserver.com/lookup/account.json?customer=1234");
-	result.addLink("lastOrder", "http://myserver.com/api/customers/1234/orders?filter=last");
-	res.set('Content-Type', 'application/vnd.siren+json');
-	res.status(200).send(result);
 });
+
+// /* GET users listing. */
+// router.get('/', function(req, res, next) {
+
+// 	var result = new Achelous("categories", {
+// 		firstName: "Joe",
+// 		lastName: "Customer"
+// 	});
+
+// 	result.addEntity({
+// 		class: ["order",
+// 			"collection"
+// 		],
+// 		rel: "http://foo.bar.com/orders",
+// 		href: "http://myserver.com/api/orders"
+// 	});
+
+// 	result.addLink("self", "http://myserver.com/api/customers/1234");
+// 	result.addLink("account", "http://myserver.com/lookup/account.json?customer=1234");
+// 	result.addLink("lastOrder", "http://myserver.com/api/customers/1234/orders?filter=last");
+// 	res.set('Content-Type', 'application/vnd.siren+json');
+// 	res.status(200).send(result);
+// });
 
 module.exports = router;

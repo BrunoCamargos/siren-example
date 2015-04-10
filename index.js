@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 var db = require("mongoose");
 db.connect('mongodb://siren-example:nAUaydiZGpuJ4jmGoq9TUa2in@ds061611.mongolab.com:61611/heroku_app35750614');
 
+// var db = require("mongoose");
+// db.connect("mongodb://localhost/RESTApp");
+
 var app = express();
 var http = require('http');
 
@@ -31,6 +34,7 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
 
   res.setHeader('Content-Type', 'application/vnd.siren+json');
+  res.setHeader('Accept', 'application/vnd.siren+json');
 
   // Pass to next layer of middleware
   next();

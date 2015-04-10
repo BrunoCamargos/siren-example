@@ -2,7 +2,6 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
-1 verbose cli   '--save',
 1 verbose cli   'moongose' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
@@ -35,15 +34,15 @@
 19 silly addNameRange { name: 'moongose', range: '*', hasData: false }
 20 verbose request where is /moongose
 21 verbose request registry https://registry.npmjs.org/
-22 verbose request id 8e75a31ae6bc2fef
+22 verbose request id 6af4b1e4dffca9b5
 23 verbose url raw /moongose
 24 verbose url resolving [ 'https://registry.npmjs.org/', './moongose' ]
 25 verbose url resolved https://registry.npmjs.org/moongose
 26 verbose request where is https://registry.npmjs.org/moongose
-27 info trying registry request attempt 1 at 17:19:32
+27 info trying registry request attempt 1 at 17:41:34
 28 http GET https://registry.npmjs.org/moongose
 29 http 404 https://registry.npmjs.org/moongose
-30 verbose headers { date: 'Fri, 10 Apr 2015 20:21:07 GMT',
+30 verbose headers { date: 'Fri, 10 Apr 2015 20:43:05 GMT',
 30 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
 30 verbose headers   'content-type': 'application/json',
 30 verbose headers   'cache-control': 'max-age=0',
@@ -51,14 +50,14 @@
 30 verbose headers   'accept-ranges': 'bytes',
 30 verbose headers   via: '1.1 varnish',
 30 verbose headers   age: '0',
-30 verbose headers   'x-served-by': 'cache-iad2141-IAD',
+30 verbose headers   'x-served-by': 'cache-atl6228-ATL',
 30 verbose headers   'x-cache': 'MISS',
 30 verbose headers   'x-cache-hits': '0',
-30 verbose headers   'x-timer': 'S1428697267.926035,VS0,VE63',
+30 verbose headers   'x-timer': 'S1428698585.791122,VS0,VE110',
 30 verbose headers   'keep-alive': 'timeout=10, max=50',
 30 verbose headers   connection: 'Keep-Alive' }
 31 silly registry.get cb [ 404,
-31 silly registry.get   { date: 'Fri, 10 Apr 2015 20:21:07 GMT',
+31 silly registry.get   { date: 'Fri, 10 Apr 2015 20:43:05 GMT',
 31 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
 31 silly registry.get     'content-type': 'application/json',
 31 silly registry.get     'cache-control': 'max-age=0',
@@ -66,10 +65,10 @@
 31 silly registry.get     'accept-ranges': 'bytes',
 31 silly registry.get     via: '1.1 varnish',
 31 silly registry.get     age: '0',
-31 silly registry.get     'x-served-by': 'cache-iad2141-IAD',
+31 silly registry.get     'x-served-by': 'cache-atl6228-ATL',
 31 silly registry.get     'x-cache': 'MISS',
 31 silly registry.get     'x-cache-hits': '0',
-31 silly registry.get     'x-timer': 'S1428697267.926035,VS0,VE63',
+31 silly registry.get     'x-timer': 'S1428698585.791122,VS0,VE110',
 31 silly registry.get     'keep-alive': 'timeout=10, max=50',
 31 silly registry.get     connection: 'Keep-Alive' } ]
 32 silly lockFile 63fea7b6-moongose moongose@
@@ -83,7 +82,7 @@
 34 error 404 Note that you can also install from a
 34 error 404 tarball, folder, or http url, or git url.
 35 error System Windows_NT 6.1.7601
-36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "moongose"
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "moongose"
 37 error cwd D:\personal-git\HATEOAS\siren
 38 error node -v v0.10.33
 39 error npm -v 1.4.28
