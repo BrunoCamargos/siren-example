@@ -1,0 +1,24 @@
+{
+  "name": "HATEOAS-Siren",
+  "version": "1.0.0",
+  "description": "HATEOAS in practice using Siren hypermedia",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "achelous": "0.0.2",
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "siren-writer": "0.0.1"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "keywords": [
+    "HATEOAS",
+    "Siren"
+  ],
+  "author": "Bruno Camargos",
+  "license": "MIT"
+}
