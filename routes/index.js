@@ -54,7 +54,7 @@ router.get('/:id', function(req, res) {
 			"method": "POST",
 			"href": "https://siren-example.herokuapp.com/",
 			"title": "add category",
-			"type": "application/x-www-form-urlencoded",
+			"type": "application/json",
 			"fields": [{
 				"name": "name",
 				"type": "text",
