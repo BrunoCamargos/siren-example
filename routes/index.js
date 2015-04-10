@@ -34,6 +34,36 @@ router.get('/', function(req, res) {
 	});
 });
 
+
+router.get('/:id', function(req, res) {
+	res.status(200).send({
+		"class": ["category"],
+		"properties": {
+			"id": "55283b52c585b0e41af6bc24",
+			"name": "Nome qquer"
+		},
+		"links": [{
+			"rel": ["self"],
+			"href": "https://siren-example.herokuapp.com/55283b52c585b0e41af6bc24"
+		}, {
+			"rel": ["collection"],
+			"href": "https://siren-example.herokuapp.com/"
+		}],
+		"actions": [{
+			"name": "add-item",
+			"method": "POST",
+			"href": "https://siren-example.herokuapp.com/",
+			"title": "add category",
+			"type": "application/x-www-form-urlencoded",
+			"fields": [{
+				"name": "name",
+				"type": "text",
+			}]
+		}]
+	});
+});
+
+
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {
 
