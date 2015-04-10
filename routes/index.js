@@ -1,6 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var Achelous = require('achelous');
+var db = require("mongoose");
+
+require('../models/category');
+var categories = db.model('Category');
+
+router.post('/', function(req, res, next) {
+	var newCategory = new categories({
+		'name': req.body.name
+	});
+
+	newCategory.save(function(err, data) {
+		if (err) {
+			console.log(err);
+			res.sendStatus(500);
+		} else {
+			res.json(data);
+			res.status(201);
+		}
+	});
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var db = require("mongoose");
+db.connect('mongodb://siren-example:nAUaydiZGpuJ4jmGoq9TUa2in@ds061611.mongolab.com:61611/heroku_app35750614');
+
 var app = express();
 var http = require('http');
 

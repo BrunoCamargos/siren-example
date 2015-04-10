@@ -1,0 +1,91 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'moongose' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json HATEOAS-Siren@1.0.0 No repository field.
+6 warn package.json achelous@0.0.2 No repository field.
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'moongose', null ]
+9 verbose cache add name=undefined spec="moongose" args=["moongose",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'moongose',
+10 verbose parsed url   path: 'moongose',
+10 verbose parsed url   href: 'moongose' }
+11 silly lockFile 61a5aea2-moongose moongose
+12 verbose lock moongose C:\Users\bruno.camargos\AppData\Roaming\npm-cache\61a5aea2-moongose.lock
+13 silly lockFile 61a5aea2-moongose moongose
+14 silly lockFile 61a5aea2-moongose moongose
+15 verbose addNamed [ 'moongose', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 63fea7b6-moongose moongose@
+18 verbose lock moongose@ C:\Users\bruno.camargos\AppData\Roaming\npm-cache\63fea7b6-moongose.lock
+19 silly addNameRange { name: 'moongose', range: '*', hasData: false }
+20 verbose request where is /moongose
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id 8e75a31ae6bc2fef
+23 verbose url raw /moongose
+24 verbose url resolving [ 'https://registry.npmjs.org/', './moongose' ]
+25 verbose url resolved https://registry.npmjs.org/moongose
+26 verbose request where is https://registry.npmjs.org/moongose
+27 info trying registry request attempt 1 at 17:19:32
+28 http GET https://registry.npmjs.org/moongose
+29 http 404 https://registry.npmjs.org/moongose
+30 verbose headers { date: 'Fri, 10 Apr 2015 20:21:07 GMT',
+30 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=0',
+30 verbose headers   'content-length': '51',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   'x-served-by': 'cache-iad2141-IAD',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1428697267.926035,VS0,VE63',
+30 verbose headers   'keep-alive': 'timeout=10, max=50',
+30 verbose headers   connection: 'Keep-Alive' }
+31 silly registry.get cb [ 404,
+31 silly registry.get   { date: 'Fri, 10 Apr 2015 20:21:07 GMT',
+31 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '51',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     'x-served-by': 'cache-iad2141-IAD',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1428697267.926035,VS0,VE63',
+31 silly registry.get     'keep-alive': 'timeout=10, max=50',
+31 silly registry.get     connection: 'Keep-Alive' } ]
+32 silly lockFile 63fea7b6-moongose moongose@
+33 silly lockFile 63fea7b6-moongose moongose@
+34 error 404 404 Not Found: moongose
+34 error 404
+34 error 404 'moongose' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404 It was specified as a dependency of 'HATEOAS-Siren'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Windows_NT 6.1.7601
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "moongose"
+37 error cwd D:\personal-git\HATEOAS\siren
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]
