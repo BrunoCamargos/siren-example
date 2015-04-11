@@ -40,8 +40,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-var routes = require('./routes/index');
-app.use('/', routes);
+var index_routes = require('./routes/index');
+var categories_routes = require('./routes/category');
+app.use('/', index_routes);
+app.use('/categories/', categories_routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
