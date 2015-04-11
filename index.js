@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 var index_routes = require('./routes/index');
-var categories_routes = require('./routes/category');
+var categories_routes = require('./routes/categories');
 app.use('/', index_routes);
 app.use('/categories/', categories_routes);
 

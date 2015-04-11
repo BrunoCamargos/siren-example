@@ -6,6 +6,17 @@ var db = require("mongoose");
 require('../models/category');
 var categories = db.model('Category');
 
+router.get('/', function(req, res, next) {
+	categories.find({}, function(err, data) {
+		if (err) {
+			next(err);
+		} else {
+			res.json(data);
+			res.status(200);
+		}
+	});
+});
+
 router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var newCategory = new categories({
@@ -22,18 +33,6 @@ router.post('/', function(req, res, next) {
 		}
 	});
 });
-
-router.get('/', function(req, res) {
-	categories.find({}, function(err, data) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.json(data);
-			res.status(200);
-		}
-	});
-});
-
 
 router.get('/:id', function(req, res) {
 	res.status(200).send({
