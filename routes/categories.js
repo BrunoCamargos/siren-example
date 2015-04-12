@@ -33,6 +33,19 @@ router.get('/', function(req, res, next) {
 				});
 			}
 
+			result.addAction({
+				name: 'add-category',
+				method: 'POST',
+				href: 'http://siren-example.herokuapp.com/categories/',
+				title: 'Add Category',
+				type: 'application/json',
+				fields: [{
+					name: 'name',
+					type: 'text',
+					title: 'Category name'
+				}]
+			});
+
 			result.addLink('self', 'http://siren-example.herokuapp.com/categories/');
 			res.status(200).send(result);
 		}
@@ -63,18 +76,7 @@ router.get('/:id', function(req, res) {
 				result.addLink('self', 'http://siren-example.herokuapp.com/categories/' + category._id);
 				result.addLink('categories', 'http://siren-example.herokuapp.com/categories/');
 
-				result.addAction({
-					name: 'add-category',
-					method: 'POST',
-					href: 'http://siren-example.herokuapp.com/categories/',
-					title: 'Add Category',
-					type: 'application/json',
-					fields: [{
-						name: 'name',
-						type: 'text',
-						title: 'Category name'
-					}]
-				});
+
 
 				res.status(200).send(result);
 			} else {
@@ -87,7 +89,6 @@ router.get('/:id', function(req, res) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log(req.body);
 	var newCategory = new categories({
 		name: req.body.name
 	});
@@ -96,6 +97,28 @@ router.post('/', function(req, res, next) {
 		if (err) {
 			next(err);
 		} else {
+			// 			var result = new Achelous('category', {
+			// 	id: category._id,
+			// 	name: category.name
+			// });
+
+			// result.addEntity({
+			// 	class: ['categories', 'collection'],
+			// 	title: 'Categories',
+			// 	rel: 'categories',
+			// 	links: [{
+			// 		rel: 'self',
+			// 		href: 'http://siren-example.herokuapp.com/categories/'
+			// 	}]
+			// });
+
+			// result.addLink('self', 'http://siren-example.herokuapp.com/categories/' + category._id);
+			// result.addLink('categories', 'http://siren-example.herokuapp.com/categories/');
+
+
+
+			// res.status(200).send(result);
+			console.log(data);
 			res.status(201).send(data);
 		}
 	});
