@@ -103,6 +103,20 @@ function createCategoryResult(category) {
 		}]
 	});
 
+	result.addAction({
+		name: 'update-category',
+		method: 'PUT',
+		href: 'http://siren-example.herokuapp.com/categories/',
+		title: 'Update Category',
+		// type: 'application/json',
+		fields: [{
+			name: 'name',
+			type: 'text',
+			title: 'Category name',
+			value: category.name
+		}]
+	});
+
 	return result;
 }
 
@@ -121,6 +135,22 @@ router.post('/', function(req, res, next) {
 });
 
 router.delete('/:id', function(req, res, next) {
+	console.log(req.params.id);
+	console.log(req.body);
+
+	categories.remove({
+		'_id': req.params.id
+	}, function(err, data) {
+		if (err) {
+			next(err);
+		} else {
+			console.log(data);
+			res.status(200).send(createCategoryResult(data));
+		}
+	});
+});
+
+router.delete('/', function(req, res, next) {
 	console.log(req.params.id);
 	console.log(req.body);
 
