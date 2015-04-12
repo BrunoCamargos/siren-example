@@ -11,8 +11,28 @@ router.get('/', function(req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-			res.json(data);
-			res.status(200);
+
+			// console.log(data[0]._id);
+			var result = new Achelous('categories');
+
+			var i = 0;
+			for (i; i < data.length; i++) {
+				result.addEntity({
+					class: ['category'],
+					properties: {
+						id: data[i]._id,
+						name: data[i].name
+					},
+					rel: 'item',
+					links: [{
+						rel: 'self',
+						href: 'http://siren-example.herokuapp.com/categories/data[i]._id'
+					}]
+				});
+			}
+
+			result.addLink("self", "http://siren-example.herokuapp.com/categories/");
+			res.status(200).send(result);
 		}
 	});
 });
