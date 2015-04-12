@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 					rel: 'item',
 					links: [{
 						rel: 'self',
-						href: 'http://siren-example.herokuapp.com/categories/data[i]._id',
+						href: 'http://siren-example.herokuapp.com/categories/' + data[i]._id,
 						title: data[i].name
 					}]
 				});
@@ -94,11 +94,10 @@ router.post('/', function(req, res, next) {
 
 	newCategory.save(function(err, data) {
 		if (err) {
-			console.log(err);
-			res.sendStatus(500);
+			next(err);
 		} else {
-			res.json(data);
-			res.status(201);
+
+			res.status(201).send();
 		}
 	});
 });
