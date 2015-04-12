@@ -7,6 +7,10 @@ require('../models/category');
 var categories = db.model('Category');
 
 router.get('/', function(req, res, next) {
+	getAndSendAll(res);
+});
+
+function getAndSendAll(res) {
 	categories.find({}, function(err, categories) {
 		if (err) {
 			next(err);
@@ -14,7 +18,7 @@ router.get('/', function(req, res, next) {
 			res.status(200).send(createCategoriesResult(categories));
 		}
 	});
-});
+}
 
 function createCategoriesResult(categories) {
 	var result = new Achelous('categories');
@@ -92,21 +96,21 @@ function createCategoryResult(category) {
 	result.addAction({
 		name: 'del-category',
 		method: 'DELETE',
-		href: 'http://siren-example.herokuapp.com/categories/',
-		title: 'Delete Category',
+		href: 'http://siren-example.herokuapp.com/categories/' + category._id,
+		title: 'Delete Category'
 		// type: 'application/json',
-		fields: [{
-			name: 'id',
-			type: 'text',
-			title: 'Category ID',
-			value: category._id
-		}]
+		// fields: [{
+		// 	name: 'id',
+		// 	type: 'text',
+		// 	title: 'Category ID',
+		// 	value: category._id
+		// }]
 	});
 
 	result.addAction({
 		name: 'update-category',
 		method: 'PUT',
-		href: 'http://siren-example.herokuapp.com/categories/',
+		href: 'http://siren-example.herokuapp.com/categories/' + category._id,
 		title: 'Update Category',
 		// type: 'application/json',
 		fields: [{
@@ -135,33 +139,32 @@ router.post('/', function(req, res, next) {
 });
 
 router.delete('/:id', function(req, res, next) {
-	console.log(req.params.id);
-	console.log(req.body);
-
 	categories.remove({
 		'_id': req.params.id
 	}, function(err, data) {
 		if (err) {
 			next(err);
 		} else {
-			console.log(data);
-			res.status(200).send(createCategoryResult(data));
+			// console.log(data.result.ok);
+			// console.log(data.result.n);
+			getAndSendAll(res);
 		}
 	});
 });
 
-router.delete('/', function(req, res, next) {
-	console.log(req.params.id);
-	console.log(req.body);
-
-	categories.remove({
+router.put('/:id', function(req, res, next) {
+	categories.update({
 		'_id': req.params.id
+	}, {
+		'name': req.body.name
 	}, function(err, data) {
 		if (err) {
 			next(err);
 		} else {
-			console.log(data);
-			res.status(200).send(createCategoryResult(data));
+			// console.log(data.ok);
+			// console.log(data.n);
+			// console.log(data.nModified);
+			getAndSendAll(res);
 		}
 	});
 });
