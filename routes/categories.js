@@ -51,8 +51,8 @@ router.get('/:id', function(req, res) {
 				});
 
 				result.addEntity({
-					class: ['categories', 'collection']
-					title: 'Categories'
+					class: ['categories', 'collection'],
+					title: 'Categories',
 					rel: 'categories',
 					links: [{
 						rel: 'self',
