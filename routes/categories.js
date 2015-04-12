@@ -96,8 +96,7 @@ router.post('/', function(req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-
-			res.status(201).send();
+			res.status(201).send(data);
 		}
 	});
 });
