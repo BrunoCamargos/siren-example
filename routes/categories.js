@@ -58,27 +58,7 @@ router.get('/:id', function(req, res) {
 			next(err);
 		} else {
 			if (category) {
-				var result = new Achelous('category', {
-					id: category._id,
-					name: category.name
-				});
-
-				result.addEntity({
-					class: ['categories', 'collection'],
-					title: 'Categories',
-					rel: 'categories',
-					links: [{
-						rel: 'self',
-						href: 'http://siren-example.herokuapp.com/categories/'
-					}]
-				});
-
-				result.addLink('self', 'http://siren-example.herokuapp.com/categories/' + category._id);
-				result.addLink('categories', 'http://siren-example.herokuapp.com/categories/');
-
-
-
-				res.status(200).send(result);
+				res.status(200).send(createCategoryResult(category));
 			} else {
 				var err = new Error('Category Not Found');
 				err.status = 404;
@@ -88,65 +68,40 @@ router.get('/:id', function(req, res) {
 	});
 });
 
+function createCategoryResult(category) {
+	var result = new Achelous('category', {
+		id: category._id,
+		name: category.name
+	});
+
+	result.addEntity({
+		class: ['categories', 'collection'],
+		title: 'Categories',
+		rel: 'categories',
+		links: [{
+			rel: 'self',
+			href: 'http://siren-example.herokuapp.com/categories/'
+		}]
+	});
+
+	result.addLink('self', 'http://siren-example.herokuapp.com/categories/' + category._id);
+	result.addLink('categories', 'http://siren-example.herokuapp.com/categories/');
+	return result;
+
+}
+
 router.post('/', function(req, res, next) {
 	var newCategory = new categories({
 		name: req.body.name
 	});
 
-	newCategory.save(function(err, data) {
+	newCategory.save(function(err, category) {
 		if (err) {
 			next(err);
 		} else {
-			// 			var result = new Achelous('category', {
-			// 	id: category._id,
-			// 	name: category.name
-			// });
-
-			// result.addEntity({
-			// 	class: ['categories', 'collection'],
-			// 	title: 'Categories',
-			// 	rel: 'categories',
-			// 	links: [{
-			// 		rel: 'self',
-			// 		href: 'http://siren-example.herokuapp.com/categories/'
-			// 	}]
-			// });
-
-			// result.addLink('self', 'http://siren-example.herokuapp.com/categories/' + category._id);
-			// result.addLink('categories', 'http://siren-example.herokuapp.com/categories/');
-
-
-
-			// res.status(200).send(result);
-			console.log(data);
-			res.status(201).send(data);
+			res.status(200).send(createCategoryResult(category));
 		}
 	});
 });
-
-
-
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-
-// 	var result = new Achelous('categories', {
-// 		firstName: 'Joe',
-// 		lastName: 'Customer'
-// 	});
-
-// 	result.addEntity({
-// 		class: ['order',
-// 			'collection'
-// 		],
-// 		rel: 'http://foo.bar.com/orders',
-// 		href: 'http://myserver.com/api/orders'
-// 	});
-
-// 	result.addLink('self', 'http://myserver.com/api/customers/1234');
-// 	result.addLink('account', 'http://myserver.com/lookup/account.json?customer=1234');
-// 	result.addLink('lastOrder', 'http://myserver.com/api/customers/1234/orders?filter=last');
-// 	res.set('Content-Type', 'application/vnd.siren+json');
-// 	res.status(200).send(result);
-// });
 
 module.exports = router;
