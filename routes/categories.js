@@ -50,6 +50,8 @@ function createCategoriesResult(categories) {
 	});
 
 	result.addLink('self', 'http://siren-example.herokuapp.com/categories/');
+
+	return result;
 }
 
 router.get('/:id', function(req, res) {
