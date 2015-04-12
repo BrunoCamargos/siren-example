@@ -24,8 +24,10 @@ router.get('/', function(req, res, next) {
 						name: data[i].name
 					},
 					rel: 'item',
+					title: data[i].name,
 					links: [{
 						rel: 'self',
+						title: data[i].name,
 						href: 'http://siren-example.herokuapp.com/categories/' + data[i]._id
 					}]
 				});
