@@ -23,12 +23,10 @@ router.get('/', function(req, res, next) {
 						id: data[i]._id,
 						name: data[i].name
 					},
-					title: data[i].name,
 					rel: 'item',
 					links: [{
 						rel: 'self',
-						href: 'http://siren-example.herokuapp.com/categories/' + data[i]._id,
-						title: data[i].name
+						href: 'http://siren-example.herokuapp.com/categories/' + data[i]._id
 					}]
 				});
 			}
@@ -40,7 +38,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res) {
-	categorias.findById(req.params.id).exec(function(err, category) {
+	categories.findById(req.params.id).exec(function(err, category) {
 		if (err) {
 			next(err);
 		} else {
